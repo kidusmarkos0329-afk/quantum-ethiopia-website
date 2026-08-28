@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import WhyQuantumPage from "./pages/WhyQuantumPage.jsx";
@@ -13,51 +14,16 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-
         <Route path="/" element={<Home />} />
-
         <Route path="/about" element={<AboutPage />} />
-
-        <Route
-          path="/why-quantum"
-          element={<WhyQuantumPage />}
-        />
-
-        <Route
-          path="/research"
-          element={<ResearchPage />}
-        />
-
-        <Route
-          path="/repository"
-          element={<RepositoryPage />}
-        />
-
-        <Route
-          path="/landscape"
-          element={<LandscapePage />}
-        />
-
-        <Route
-          path="/roadmap"
-          element={<RoadmapPage />}
-        />
-
-        <Route
-          path="/news"
-          element={<NewsPage />}
-        />
-
-        <Route
-          path="/partners"
-          element={<PartnersPage />}
-        />
-
-        <Route
-          path="/contact"
-          element={<ContactPage />}
-        />
-
+        <Route path="/why-quantum" element={<WhyQuantumPage />} />
+        <Route path="/research" element={<ResearchPage />} />
+        <Route path="/repository" element={<RepositoryPage />} />
+        <Route path="/landscape" element={<LandscapePage />} />
+        <Route path="/roadmap" element={<RoadmapPage />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/partners" element={<PartnersPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </BrowserRouter>
   );

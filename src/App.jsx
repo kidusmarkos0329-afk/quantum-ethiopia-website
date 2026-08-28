@@ -1,15 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Home from "./pages/Home";
-import AboutPage from "./pages/AboutPage";
-import WhyQuantumPage from "./pages/WhyQuantumPage";
-import ResearchPage from "./pages/ResearchPage";
-import RepositoryPage from "./pages/RepositoryPage";
-import LandscapePage from "./pages/LandscapePage";
-import RoadmapPage from "./pages/RoadmapPage";
-import NewsPage from "./pages/NewsPage";
-import PartnersPage from "./pages/PartnersPage";
-import ContactPage from "./pages/ContactPage";
+import Home from "./pages/Home.jsx";
+import AboutPage from "./pages/AboutPage.jsx";
+import WhyQuantumPage from "./pages/WhyQuantumPage.jsx";
+import ResearchPage from "./pages/ResearchPage.jsx";
+import RepositoryPage from "./pages/RepositoryPage.jsx";
+import LandscapePage from "./pages/LandscapePage.jsx";
+import RoadmapPage from "./pages/RoadmapPage.jsx";
+import NewsPage from "./pages/NewsPage.jsx";
+import PartnersPage from "./pages/PartnersPage.jsx";
+import ContactPage from "./pages/ContactPage.jsx";
 
 function App() {
   return (

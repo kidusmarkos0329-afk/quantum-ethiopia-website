@@ -1,6 +1,6 @@
-import Navbar from "../components/Navbar";
-import Partners from "../components/Partners";
-import Footer from "../components/Footer";
+import Navbar from "../components/Navbar.jsx";
+import Partners from "../components/partners.jsx";
+import Footer from "../components/Footer.jsx";
 
 function PartnersPage() {
   return (

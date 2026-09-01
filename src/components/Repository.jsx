@@ -12,52 +12,76 @@ import { Link } from "react-router-dom";
 function Repository() {
   const documents = [
     {
-      title: "Quantum Computing Research Title",
-      authors: "Researcher Name(s)",
-      institution: "University Name",
-      year: "2026",
-      category: "Quantum Computing",
-      type: "Research Paper",
-    },
-    {
-      title: "Post-Quantum Cryptography Study",
-      authors: "Researcher Name(s)",
-      institution: "University Name",
-      year: "2026",
-      category: "Post-Quantum Cryptography",
-      type: "Thesis",
-    },
-    {
-      title: "Quantum Communication Report",
-      authors: "Researcher Name(s)",
-      institution: "University Name",
-      year: "2026",
-      category: "Quantum Communication",
-      type: "Technical Report",
-    },
-    {
-      title: "Quantum Algorithms Study",
-      authors: "Researcher Name(s)",
-      institution: "University Name",
-      year: "2026",
-      category: "Algorithms",
-      type: "Research Paper",
-    },
-    {
-      title: "Quantum Education Material",
-      authors: "Researcher Name(s)",
-      institution: "University Name",
-      year: "2026",
-      category: "Education",
-      type: "Presentation",
-    },
-    {
-      title: "National Quantum Strategy",
+      title: "Quantum Computing and National Security",
       authors: "INSA",
       institution: "Information Network Security Administration",
+      year: "2025",
+      category: "National Security",
+      type: "Report",
+      link: "/Quantum Computing and National Security .pdf",
+    },
+    {
+      title: "Three-Level Laser Dynamics with the Atoms Pumped by Electron Bombardment",
+      authors: "Kassahun, F.",
+      institution: "Addis Ababa University",
+      year: "2011",
+      category: "Quantum Dynamics",
+      type: "Research Paper",
+      link: "https://doi.org/10.48550/arxiv.1105.1438",
+    },
+    {
+      title: "Quantum synchronization enhanced via photon hopping in anoptomechanical system",
+      authors: "Mekonnen, H. D.",
+      institution: "Scientific Reports",
       year: "2026",
-      category: "National Strategy",
-      type: "Policy Document",
+      category: "Quantum Synchronization",
+      type: "Research Paper",
+      link: "https://www.nature.com/articles/s41598-026-63320-6",
+    },
+    {
+      title: "Tuning Optical Properties of Cylindrical Nanoinclusions: The Roles of Metal Fraction, Passive and Active Host Matrices",
+      authors: "Getachew, S.",
+      institution: "Jefore Ethiopian Journal of Applied Sciences",
+      year: "2026",
+      category: "Optical Properties",
+      type: "Research Paper",
+      link: "https://www.jejas.org/index.php/jejas/article/view/100",
+    },
+    {
+      title: "The Quantum Properties of a Superposition of Vee Type Three-level Lasers",
+      authors: "Teshome, T.",
+      institution: "Science Publishing Group",
+      year: "2021",
+      category: "Quantum Optics",
+      type: "Research Paper",
+      link: "https://doi.org/10.11648/j.ajpa.20210904.11",
+    },
+    {
+      title: "Addis Ababa University Electronic Thesis and Dissertation Repository",
+      authors: "Addis Ababa University",
+      institution: "Addis Ababa University",
+      year: "Various",
+      category: "Repository",
+      type: "Database",
+      link: "https://etd.aau.edu.et",
+    },
+    {
+      title: "Haramaya University Institutional Repository",
+      authors: "Haramaya University",
+      institution: "Haramaya University",
+      year: "Various",
+      category: "Repository",
+      type: "Database",
+      link: "http://ir.haramaya.edu.et/hru/",
+    },
+    {
+      title: "The Interaction of Two-Level Atom with Light Beams",
+      authors: "Tesfaye, H.",
+      institution: "Wallaga University",
+      year: "2023",
+      category: "Quantum Interaction",
+      type: "Master of Science Proposal",
+      link: "https://www.scribd.com/document/624862532/my-thesis-4",
     },
   ];
 
@@ -183,15 +207,26 @@ function Repository() {
 
               <div className="flex gap-4 mt-8">
 
-                <button className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 transition px-5 py-3 rounded-xl font-semibold text-slate-950">
+                <a
+                  href={doc.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-cyan-500 hover:bg-cyan-400 transition px-5 py-3 rounded-xl font-semibold text-slate-950"
+                >
                   <FaEye />
                   View
-                </button>
+                </a>
 
-                <button className="flex items-center gap-2 border border-cyan-500 hover:bg-cyan-500/10 transition px-5 py-3 rounded-xl">
+                <a
+                  href={doc.link}
+                  download={doc.link.endsWith(".pdf") ? true : undefined}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 border border-cyan-500 hover:bg-cyan-500/10 transition px-5 py-3 rounded-xl"
+                >
                   <FaDownload />
                   Download
-                </button>
+                </a>
 
               </div>
 

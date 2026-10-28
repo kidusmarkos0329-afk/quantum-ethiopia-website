@@ -23,9 +23,9 @@ function Stats() {
   ];
 
   return (
-    <section className="bg-[var(--bg-secondary)] border-b border-[var(--border-subtle)] py-24 lg:py-28">
+    <section className="bg-[#0a2540] text-white border-b border-[#1e3a5f] py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[var(--border-color)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-700/80">
           {stats.map((stat, idx) => (
             <div
               key={stat.number}
@@ -37,13 +37,13 @@ function Stats() {
                   : "sm:px-8"
               }`}
             >
-              <p className="text-xs uppercase tracking-[3px] text-[var(--insa-accent)] font-semibold">
+              <p className="text-xs uppercase tracking-[3px] text-[#38bdf8] font-semibold">
                 {stat.title}
               </p>
-              <h2 className="font-serif-heading text-5xl font-bold text-[var(--text-primary)] mt-3">
+              <h2 className="font-serif-heading text-5xl font-bold text-white mt-3">
                 {stat.number}
               </h2>
-              <p className="text-[var(--text-secondary)] text-sm mt-3 leading-relaxed">
+              <p className="text-slate-300 text-sm mt-3 leading-relaxed">
                 {stat.subtitle}
               </p>
             </div>

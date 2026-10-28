@@ -8,9 +8,9 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("insa_quantum_theme") || "dark";
+      return localStorage.getItem("insa_theme_mode_v2") || "light";
     }
-    return "dark";
+    return "light";
   });
 
   const location = useLocation();
@@ -24,7 +24,7 @@ function Navbar() {
       root.classList.add("light");
       root.classList.remove("dark");
     }
-    localStorage.setItem("insa_quantum_theme", theme);
+    localStorage.setItem("insa_theme_mode_v2", theme);
   }, [theme]);
 
   useEffect(() => {
@@ -56,23 +56,35 @@ function Navbar() {
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b ${
         scrolled
           ? "bg-[var(--nav-bg)] backdrop-blur-md border-[var(--border-color)] shadow-sm"
-          : "bg-[var(--nav-bg)] backdrop-blur-sm border-transparent"
+          : "bg-[var(--nav-bg)] backdrop-blur-sm border-[var(--border-subtle)]"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-24 flex items-center justify-between">
+      {/* Top INSA Dark Navy Institutional Bar */}
+      <div className="bg-[#0a2540] text-white text-xs py-1.5 px-6 sm:px-10 lg:px-12">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <span className="font-medium tracking-wide">
+            Information Network Security Administration (INSA) • Federal Democratic Republic of Ethiopia
+          </span>
+          <span className="hidden sm:inline text-[#38bdf8] font-mono">
+            quantum@insa.gov.et
+          </span>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 h-20 flex items-center justify-between">
         <Link
           to="/"
           className="flex items-center gap-3.5 text-[var(--text-primary)] font-bold text-xl tracking-tight"
           onClick={() => setIsOpen(false)}
         >
-          <span className="w-10 h-10 rounded-lg bg-[var(--btn-primary-bg)] text-white flex items-center justify-center shadow-sm">
-            <FaAtom className="text-xl" />
+          <span className="w-10 h-10 rounded-lg bg-[#0b3c78] text-white flex items-center justify-center shadow-sm">
+            <FaAtom className="text-xl text-[#38bdf8]" />
           </span>
           <div className="flex flex-col">
             <span className="font-serif-heading text-lg leading-tight">
               Quantum Ethiopia
             </span>
-            <span className="text-[11px] uppercase tracking-[2.5px] text-[var(--insa-accent)] font-semibold">
+            <span className="text-[10px] uppercase tracking-[2.5px] text-[var(--insa-accent)] font-semibold">
               INSA National Portal
             </span>
           </div>
@@ -98,23 +110,29 @@ function Navbar() {
           })}
         </ul>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={toggleTheme}
             aria-label="Toggle color theme"
-            className="p-2.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)] hover:border-[var(--insa-accent)] transition"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] hover:border-[var(--insa-accent)] text-xs font-semibold transition cursor-pointer"
             title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
           >
             {theme === "dark" ? (
-              <FaSun className="text-amber-400 text-base" />
+              <>
+                <FaSun className="text-amber-400 text-sm" />
+                <span>Light Mode</span>
+              </>
             ) : (
-              <FaMoon className="text-slate-700 text-base" />
+              <>
+                <FaMoon className="text-[#0b3c78] text-sm" />
+                <span>Dark Mode</span>
+              </>
             )}
           </button>
 
           <Link
             to="/submit-research"
-            className="text-sm font-medium px-4 py-2.5 rounded-lg border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--insa-accent)] transition"
+            className="text-sm font-semibold px-4 py-2.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)] hover:border-[var(--insa-accent)] transition"
           >
             Submit Paper
           </Link>
@@ -131,12 +149,18 @@ function Navbar() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle color theme"
-            className="p-2.5 rounded-lg border border-[var(--border-color)] bg-[var(--bg-secondary)] text-[var(--text-primary)]"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] text-xs font-semibold"
           >
             {theme === "dark" ? (
-              <FaSun className="text-amber-400 text-base" />
+              <>
+                <FaSun className="text-amber-400 text-sm" />
+                <span>Light</span>
+              </>
             ) : (
-              <FaMoon className="text-slate-700 text-base" />
+              <>
+                <FaMoon className="text-[#0b3c78] text-sm" />
+                <span>Dark</span>
+              </>
             )}
           </button>
 

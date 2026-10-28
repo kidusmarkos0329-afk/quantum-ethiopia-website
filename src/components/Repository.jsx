@@ -181,28 +181,51 @@ function Repository() {
   return (
     <section
       id="repository"
-      className="bg-[var(--bg-primary)] text-[var(--text-primary)] py-32 lg:py-40"
+      className="bg-[var(--bg-primary)] text-[var(--text-primary)] pt-28 pb-32 lg:pb-40"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-        {/* Header */}
-        <div className="max-w-4xl">
-          <span className="uppercase tracking-[3.5px] text-[var(--insa-accent)] text-xs font-semibold">
-            National Repository
-          </span>
+      {/* Repository Visual Banner Header with quantum-repository-bg.jpg & INSA Logo */}
+      <div
+        className="relative bg-[#0a2540] bg-cover bg-center text-white py-20 lg:py-24 border-b border-[#1e3a5f] overflow-hidden"
+        style={{ backgroundImage: "url('/quantum-repository-bg.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a2540]/95 via-[#0a2540]/85 to-[#0a2540]/65" />
 
-          <h2 className="font-serif-heading text-4xl sm:text-5xl font-bold mt-5">
-            Ethiopian Quantum Research Repository
-          </h2>
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-10">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-xs border border-[#38bdf8]/40 px-4 py-1.5 rounded-full text-xs uppercase tracking-[3px] text-[#38bdf8] font-semibold">
+              <img
+                src="/Logo_of_Ethiopian_INSA.png"
+                alt="INSA"
+                className="w-5 h-5 object-contain bg-white rounded-full p-0.5"
+              />
+              <span>INSA National Repository</span>
+            </div>
 
-          <p className="mt-6 text-[var(--text-secondary)] text-lg leading-relaxed">
-            A centralized national archive for Ethiopian quantum research
-            papers, theses, technical reports, standards, and educational
-            resources curated by INSA and partner universities.
-          </p>
+            <h2 className="font-serif-heading text-4xl sm:text-5xl font-bold mt-6 text-white">
+              Ethiopian Quantum Research Repository
+            </h2>
+
+            <p className="mt-6 text-slate-200 text-lg leading-relaxed">
+              A centralized national archive for Ethiopian quantum research
+              papers, theses, technical reports, standards, and educational
+              resources curated by INSA and partner universities.
+            </p>
+          </div>
+
+          <div className="shrink-0">
+            <Link
+              to="/submit-research"
+              className="inline-block bg-[#00a8e8] hover:bg-[#0284c7] text-white px-7 py-4 rounded-lg font-semibold transition shadow-lg"
+            >
+              + Submit Research Paper
+            </Link>
+          </div>
         </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         {/* Search & Filter Controls */}
-        <div className="mt-16 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl p-6 sm:p-8 shadow-sm">
+        <div className="-mt-10 relative z-20 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl p-6 sm:p-8 shadow-md">
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 border-b border-[var(--border-color)] pb-6">
             <div className="flex items-center gap-3.5 flex-1 bg-[var(--bg-primary)] border border-[var(--border-color)] rounded-lg px-4 py-3.5 focus-within:border-[var(--insa-accent)] transition">
               <FaSearch className="text-[var(--insa-accent)] text-base shrink-0" />
@@ -239,7 +262,7 @@ function Repository() {
                 <button
                   key={item.label}
                   onClick={() => setActiveFilter(item.value)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition border ${
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition border cursor-pointer ${
                     isSelected
                       ? "bg-[var(--btn-primary-bg)] text-white border-[var(--btn-primary-bg)]"
                       : "bg-[var(--bg-primary)] text-[var(--text-secondary)] border-[var(--border-color)] hover:border-[var(--insa-accent)]"
@@ -382,20 +405,20 @@ function Repository() {
                       </span>
                     </div>
 
-                    <div className="overflow-x-auto">
+                    <div className="overflow-x-auto bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg">
                       <table className="w-full text-left border-collapse">
                         <thead>
                           <tr className="border-b border-[var(--border-color)] text-xs uppercase tracking-wider text-[var(--text-muted)]">
-                            <th className="py-3.5 pr-6 font-semibold">Title</th>
-                            <th className="py-3.5 px-4 font-semibold">
+                            <th className="py-4 px-6 font-semibold">Title</th>
+                            <th className="py-4 px-4 font-semibold">
                               Author(s)
                             </th>
-                            <th className="py-3.5 px-4 font-semibold">
+                            <th className="py-4 px-4 font-semibold">
                               Institution
                             </th>
-                            <th className="py-3.5 px-4 font-semibold">Type</th>
-                            <th className="py-3.5 px-4 font-semibold">Year</th>
-                            <th className="py-3.5 pl-4 text-right font-semibold">
+                            <th className="py-4 px-4 font-semibold">Type</th>
+                            <th className="py-4 px-4 font-semibold">Year</th>
+                            <th className="py-4 px-6 text-right font-semibold">
                               Access
                             </th>
                           </tr>
@@ -404,9 +427,9 @@ function Repository() {
                           {docs.map((doc) => (
                             <tr
                               key={doc.id}
-                              className="hover:bg-[var(--bg-secondary)]/80 transition"
+                              className="hover:bg-[var(--bg-primary)]/60 transition"
                             >
-                              <td className="py-5 pr-6 font-medium text-[var(--text-primary)] max-w-md">
+                              <td className="py-5 px-6 font-medium text-[var(--text-primary)] max-w-md">
                                 {doc.title}
                               </td>
                               <td className="py-5 px-4 text-[var(--text-secondary)] whitespace-nowrap">
@@ -423,7 +446,7 @@ function Repository() {
                               <td className="py-5 px-4 text-[var(--text-muted)] font-mono text-xs">
                                 {doc.year}
                               </td>
-                              <td className="py-5 pl-4 text-right whitespace-nowrap space-x-4 font-semibold">
+                              <td className="py-5 px-6 text-right whitespace-nowrap space-x-4 font-semibold">
                                 <a
                                   href={doc.link}
                                   target="_blank"
@@ -456,7 +479,7 @@ function Repository() {
           </>
         )}
 
-        {/* Participating Institutions (Clean Multi-Column Directory instead of Icon Cards) */}
+        {/* Participating Institutions (Clean Multi-Column Directory) */}
         <div className="mt-28 pt-16 border-t border-[var(--border-color)]">
           <div className="grid lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-4">
@@ -491,28 +514,35 @@ function Repository() {
           </div>
         </div>
 
-        {/* Direct Research Submission Callout */}
-        <div className="mt-28 bg-[var(--bg-secondary)] border-l-4 border-[var(--insa-accent)] p-10 sm:p-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 shadow-sm">
-          <div className="max-w-2xl">
-            <span className="text-xs uppercase tracking-[3px] text-[var(--insa-accent)] font-semibold">
-              Direct Repository Deposit
-            </span>
-            <h3 className="font-serif-heading text-3xl font-bold mt-2">
-              Submit Quantum Research
-            </h3>
-            <p className="mt-4 text-[var(--text-secondary)] leading-relaxed">
-              Universities, researchers, and graduate students can deposit peer-reviewed
-              papers, MSc/PhD theses, technical reports, and educational materials
-              directly into the Ethiopian Quantum Research Repository.
-            </p>
-          </div>
+        {/* Direct Research Submission Callout with quantum-hero-bg.jpg Backdrop */}
+        <div
+          className="relative mt-28 rounded-2xl overflow-hidden bg-[#0a2540] bg-cover bg-center p-10 sm:p-14 text-white shadow-lg"
+          style={{ backgroundImage: "url('/quantum-hero-bg.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-[#0a2540]/85" />
+          <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+            <div className="max-w-2xl">
+              <span className="text-xs uppercase tracking-[3px] text-[#38bdf8] font-semibold">
+                Direct Repository Deposit
+              </span>
+              <h3 className="font-serif-heading text-3xl font-bold mt-2 text-white">
+                Submit Quantum Research
+              </h3>
+              <p className="mt-4 text-slate-200 leading-relaxed">
+                Universities, researchers, and graduate students can deposit
+                peer-reviewed papers, MSc/PhD theses, technical reports, and
+                educational materials directly into the Ethiopian Quantum
+                Research Repository.
+              </p>
+            </div>
 
-          <Link
-            to="/submit-research"
-            className="shrink-0 bg-[var(--btn-primary-bg)] text-white px-8 py-4 rounded-lg font-semibold hover:opacity-95 transition shadow-sm"
-          >
-            Submit Research Paper &rarr;
-          </Link>
+            <Link
+              to="/submit-research"
+              className="shrink-0 bg-[#00a8e8] hover:bg-[#0284c7] text-white px-8 py-4 rounded-lg font-semibold transition shadow-md"
+            >
+              Submit Research Paper &rarr;
+            </Link>
+          </div>
         </div>
       </div>
     </section>

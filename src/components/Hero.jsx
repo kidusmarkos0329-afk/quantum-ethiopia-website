@@ -7,10 +7,22 @@ function Hero() {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden bg-[var(--bg-secondary)] text-[var(--text-primary)] pt-36 pb-28 lg:py-40 border-b border-[var(--border-color)]"
     >
+      {/* Subtle Background Image Layer with Adaptive Light/Dark Overlay */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 dark:opacity-35 pointer-events-none"
+        style={{ backgroundImage: "url('/quantum-hero-bg.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-[var(--bg-secondary)] via-[var(--bg-secondary)]/90 to-transparent pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
         {/* Left Column: Crisp Light/Adaptive Editorial Intro */}
         <div className="lg:col-span-7">
-          <div className="inline-flex items-center gap-2.5 bg-[var(--insa-badge-bg)] border border-[var(--insa-accent)]/30 text-[var(--insa-badge-text)] px-4 py-1.5 rounded-full text-xs uppercase tracking-[2.5px] font-semibold">
+          <div className="inline-flex items-center gap-3 bg-[var(--insa-badge-bg)] border border-[var(--insa-accent)]/30 text-[var(--insa-badge-text)] px-4 py-1.5 rounded-full text-xs uppercase tracking-[2.5px] font-semibold">
+            <img
+              src="/Logo_of_Ethiopian_INSA.png"
+              alt="INSA"
+              className="w-5 h-5 object-contain"
+            />
             <span>INSA • Ethiopia&apos;s National Quantum Initiative</span>
           </div>
 
@@ -45,9 +57,14 @@ function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Deep INSA Navy Contrast Showcase Panel */}
+        {/* Right Column: Deep INSA Navy Contrast Showcase Panel with Background & INSA Logo */}
         <div className="lg:col-span-5 flex justify-center">
-          <div className="relative w-full max-w-[440px] aspect-square rounded-2xl bg-[#0a2540] border border-[#1e3a5f] shadow-xl flex items-center justify-center p-8 overflow-hidden">
+          <div
+            className="relative w-full max-w-[440px] aspect-square rounded-2xl bg-[#0a2540] bg-cover bg-center border border-[#1e3a5f] shadow-2xl flex items-center justify-center p-8 overflow-hidden"
+            style={{ backgroundImage: "url('/quantum-hero-bg.jpg')" }}
+          >
+            <div className="absolute inset-0 bg-[#0a2540]/75 backdrop-blur-[2px]" />
+
             <motion.div
               animate={{ rotate: 360 }}
               transition={{
@@ -55,7 +72,7 @@ function Hero() {
                 duration: 24,
                 ease: "linear",
               }}
-              className="absolute w-[320px] h-[320px] rounded-full border border-[#38bdf8]/30"
+              className="relative z-10 w-[310px] h-[310px] rounded-full border border-[#38bdf8]/40"
             />
 
             <motion.div
@@ -65,19 +82,26 @@ function Hero() {
                 duration: 16,
                 ease: "linear",
               }}
-              className="absolute w-[230px] h-[230px] rounded-full border border-[#00a8e8]/70"
+              className="absolute z-10 w-[220px] h-[220px] rounded-full border border-[#00a8e8]/80"
             />
 
+            {/* Official INSA Logo at the Quantum Core */}
             <motion.div
               animate={{
-                scale: [1, 1.08, 1],
+                scale: [1, 1.06, 1],
               }}
               transition={{
                 repeat: Infinity,
-                duration: 3,
+                duration: 3.5,
               }}
-              className="w-20 h-20 rounded-full bg-[#00a8e8] shadow-[0_0_50px_#00a8e8]"
-            />
+              className="absolute z-20 w-24 h-24 rounded-full bg-white p-3 shadow-[0_0_50px_#00a8e8] flex items-center justify-center"
+            >
+              <img
+                src="/Logo_of_Ethiopian_INSA.png"
+                alt="INSA Official Emblem"
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
 
             <motion.div
               animate={{ rotate: 360 }}
@@ -86,9 +110,9 @@ function Hero() {
                 duration: 10,
                 ease: "linear",
               }}
-              className="absolute w-[320px] h-[320px]"
+              className="absolute z-10 w-[310px] h-[310px]"
             >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#f59e0b]"></div>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[#f59e0b] shadow-md"></div>
             </motion.div>
 
             <motion.div
@@ -98,12 +122,12 @@ function Hero() {
                 duration: 14,
                 ease: "linear",
               }}
-              className="absolute w-[230px] h-[230px]"
+              className="absolute z-10 w-[220px] h-[220px]"
             >
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white"></div>
             </motion.div>
 
-            <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between text-[11px] uppercase tracking-[2px] text-slate-300 border-t border-slate-700/70 pt-3">
+            <div className="absolute z-20 bottom-5 left-6 right-6 flex items-center justify-between text-[11px] uppercase tracking-[2px] text-slate-200 border-t border-slate-600/80 pt-3">
               <span>INSA Quantum Core</span>
               <span className="text-[#38bdf8] font-mono">FDRE • 2026</span>
             </div>

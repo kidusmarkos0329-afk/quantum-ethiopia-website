@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaAtom, FaSun, FaMoon } from "react-icons/fa";
+import { FaSun, FaMoon } from "react-icons/fa";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 function Navbar() {
@@ -77,9 +77,11 @@ function Navbar() {
           className="flex items-center gap-3.5 text-[var(--text-primary)] font-bold text-xl tracking-tight"
           onClick={() => setIsOpen(false)}
         >
-          <span className="w-10 h-10 rounded-lg bg-[#0b3c78] text-white flex items-center justify-center shadow-sm">
-            <FaAtom className="text-xl text-[#38bdf8]" />
-          </span>
+          <img
+            src="/Logo_of_Ethiopian_INSA.png"
+            alt="INSA Logo"
+            className="w-12 h-12 object-contain rounded-lg bg-white p-1 border border-[var(--border-color)] shadow-xs"
+          />
           <div className="flex flex-col">
             <span className="font-serif-heading text-lg leading-tight">
               Quantum Ethiopia

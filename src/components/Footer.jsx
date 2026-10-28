@@ -1,4 +1,4 @@
-import { FaAtom, FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -9,11 +9,13 @@ function Footer() {
           <div>
             <Link
               to="/"
-              className="flex items-center gap-3 text-white text-xl font-bold"
+              className="flex items-center gap-3.5 text-white text-xl font-bold"
             >
-              <span className="w-9 h-9 rounded-lg bg-[#0088cc] text-white flex items-center justify-center">
-                <FaAtom />
-              </span>
+              <img
+                src="/Logo_of_Ethiopian_INSA.png"
+                alt="INSA Logo"
+                className="w-11 h-11 object-contain rounded-lg bg-white p-1"
+              />
               <span className="font-serif-heading">Quantum Ethiopia</span>
             </Link>
 

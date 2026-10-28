@@ -40,25 +40,30 @@ function Roadmap() {
   return (
     <section
       id="roadmap"
-      className="bg-[var(--bg-primary)] text-[var(--text-primary)] py-32 lg:py-40 border-b border-[var(--border-subtle)]"
+      className="bg-[var(--bg-primary)] text-[var(--text-primary)] pb-28 lg:pb-36 border-b border-[var(--border-subtle)]"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
-        <div className="max-w-3xl">
-          <span className="uppercase tracking-[3.5px] text-[var(--insa-accent)] text-xs font-semibold">
+      {/* Visual Header Banner */}
+      <div
+        className="relative bg-[#0a2540] bg-cover bg-center text-white pt-28 pb-20 lg:py-24 border-b border-[#1e3a5f]"
+        style={{ backgroundImage: "url('/quantum-hero-bg.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07192e]/95 via-[#0a2540]/85 to-[#0a2540]/65" />
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 relative z-10">
+          <span className="uppercase tracking-[3.5px] text-[#38bdf8] text-xs font-semibold">
             National Timeline
           </span>
-
-          <h2 className="font-serif-heading text-4xl sm:text-5xl font-bold mt-5">
+          <h2 className="font-serif-heading text-4xl sm:text-5xl font-bold mt-4 text-white">
             Ethiopia Quantum Roadmap (2026–2035)
           </h2>
-
-          <p className="mt-6 text-lg text-[var(--text-secondary)] leading-relaxed">
+          <p className="mt-5 text-lg text-slate-200 leading-relaxed max-w-3xl">
             A phased ten-year framework for cultivating national quantum
             research, cryptographic resilience, and academic excellence.
           </p>
         </div>
+      </div>
 
-        <div className="mt-24 border-t border-[var(--border-color)]">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 mt-16">
+        <div className="border-t border-[var(--border-color)]">
           {roadmap.map((item) => (
             <div
               key={item.year}

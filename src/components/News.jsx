@@ -1,102 +1,89 @@
-import {
-  FaArrowRight,
-  FaCalendarAlt,
-  FaNewspaper,
-} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function News() {
   const news = [
     {
       date: "August 2026",
+      category: "Official Launch",
       title: "Quantum Ethiopia Initiative Launch",
       description:
-        "The Information Network Security Administration (INSA) launches the Quantum Ethiopia Initiative to strengthen national research, education and collaboration in quantum technologies.",
+        "The Information Network Security Administration (INSA) launches the Quantum Ethiopia Initiative to strengthen national research, education, and collaboration in quantum technologies.",
+      href: "/about",
     },
     {
-      date: "Coming Soon",
+      date: "Upcoming",
+      category: "Academic Symposium",
       title: "National Quantum Workshop",
       description:
-        "Researchers, universities and industry partners will gather to discuss Ethiopia's quantum ecosystem and future research opportunities.",
+        "Researchers, Ethiopian universities, and industry partners will convene in Addis Ababa to align on curriculum design and collaborative research priorities.",
+      href: "/contact",
     },
     {
-      date: "Coming Soon",
+      date: "Open for Submissions",
+      category: "National Archive",
       title: "Ethiopian Quantum Research Repository",
       description:
-        "A centralized repository for Ethiopian quantum research papers, theses, reports, standards and educational resources.",
+        "A centralized digital repository for Ethiopian quantum research papers, MSc/PhD theses, technical reports, standards, and educational resources is now accepting direct submissions.",
+      href: "/repository",
     },
   ];
 
   return (
     <section
       id="news"
-      className="bg-slate-900 text-white py-28"
+      className="bg-[var(--bg-primary)] text-[var(--text-primary)] py-32 lg:py-40 border-b border-[var(--border-subtle)]"
     >
-      <div className="max-w-7xl mx-auto px-8">
-
-        <div className="text-center max-w-4xl mx-auto">
-
-          <span className="uppercase tracking-[4px] text-cyan-400 text-sm">
-            Latest News
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="max-w-3xl">
+          <span className="uppercase tracking-[3.5px] text-[var(--insa-accent)] text-xs font-semibold">
+            Latest Updates
           </span>
 
-          <h2 className="text-5xl font-bold mt-5">
-            News & Announcements
+          <h2 className="font-serif-heading text-4xl sm:text-5xl font-bold mt-5">
+            News &amp; Announcements
           </h2>
 
-          <p className="mt-8 text-lg text-slate-300 leading-9">
-            Stay updated with the latest developments, events,
-            research announcements and national quantum initiatives.
+          <p className="mt-6 text-lg text-[var(--text-secondary)] leading-relaxed">
+            Official bulletins, symposium schedules, and research announcements
+            from the Quantum Ethiopia Initiative.
           </p>
-
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mt-20">
-
+        <div className="mt-20 border-t-2 border-[var(--text-primary)] divide-y divide-[var(--border-color)]">
           {news.map((item) => (
-            <div
+            <article
               key={item.title}
-              className="bg-slate-950 border border-slate-800 rounded-3xl overflow-hidden hover:border-cyan-400 hover:-translate-y-2 transition duration-300"
+              className="py-12 grid lg:grid-cols-12 gap-8 items-start"
             >
-
-              <div className="h-52 bg-gradient-to-br from-cyan-500/30 to-blue-700/30 flex items-center justify-center">
-
-                <FaNewspaper className="text-7xl text-cyan-400" />
-
+              <div className="lg:col-span-3">
+                <p className="font-mono text-sm font-semibold text-[var(--insa-accent)]">
+                  {item.date}
+                </p>
+                <p className="text-xs uppercase tracking-[2px] text-[var(--text-muted)] mt-1">
+                  {item.category}
+                </p>
               </div>
 
-              <div className="p-8">
-
-                <div className="flex items-center gap-3 text-cyan-400">
-
-                  <FaCalendarAlt />
-
-                  <span>{item.date}</span>
-
-                </div>
-
-                <h3 className="text-2xl font-bold mt-6">
+              <div className="lg:col-span-6">
+                <h3 className="font-serif-heading text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
                   {item.title}
                 </h3>
-
-                <p className="text-slate-400 leading-8 mt-5">
+                <p className="text-[var(--text-secondary)] leading-relaxed mt-4">
                   {item.description}
                 </p>
-
-                <button className="mt-8 flex items-center gap-3 text-cyan-400 font-semibold hover:gap-5 transition-all">
-
-                  Read More
-
-                  <FaArrowRight />
-
-                </button>
-
               </div>
 
-            </div>
+              <div className="lg:col-span-3 lg:text-right pt-2">
+                <Link
+                  to={item.href}
+                  className="inline-block text-sm font-semibold text-[var(--insa-accent)] hover:underline"
+                >
+                  Read Announcement &rarr;
+                </Link>
+              </div>
+            </article>
           ))}
-
         </div>
-
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import AboutPage from "./pages/AboutPage.jsx";
 import WhyQuantumPage from "./pages/WhyQuantumPage.jsx";
 import ResearchPage from "./pages/ResearchPage.jsx";
 import RepositoryPage from "./pages/RepositoryPage.jsx";
+import SubmitResearchPage from "./pages/SubmitResearchPage.jsx";
 import LandscapePage from "./pages/LandscapePage.jsx";
 import RoadmapPage from "./pages/RoadmapPage.jsx";
 import NewsPage from "./pages/NewsPage.jsx";
@@ -19,6 +20,7 @@ function App() {
         <Route path="/why-quantum" element={<WhyQuantumPage />} />
         <Route path="/research" element={<ResearchPage />} />
         <Route path="/repository" element={<RepositoryPage />} />
+        <Route path="/submit-research" element={<SubmitResearchPage />} />
         <Route path="/landscape" element={<LandscapePage />} />
         <Route path="/roadmap" element={<RoadmapPage />} />
         <Route path="/news" element={<NewsPage />} />

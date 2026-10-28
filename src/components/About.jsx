@@ -1,121 +1,131 @@
-import { FaAtom, FaGraduationCap, FaUniversity, FaShieldAlt } from "react-icons/fa";
-
 function About() {
-  const cards = [
+  const pillars = [
     {
-      icon: <FaAtom />,
+      index: "01",
       title: "Research",
-      text: "Promoting national quantum computing research and collaboration.",
+      text: "Promoting national quantum computing, cryptography, and photonic research across Ethiopian institutions.",
     },
     {
-      icon: <FaGraduationCap />,
+      index: "02",
       title: "Education",
-      text: "Developing quantum education and training across Ethiopian universities.",
+      text: "Developing graduate curricula, laboratory training, and foundational quantum coursework across Ethiopian universities.",
     },
     {
-      icon: <FaUniversity />,
+      index: "03",
       title: "Collaboration",
-      text: "Connecting academia, government, industry and international partners.",
+      text: "Connecting academia, government agencies, industry innovators, and international scientific partners.",
     },
     {
-      icon: <FaShieldAlt />,
+      index: "04",
       title: "National Capacity",
-      text: "Preparing Ethiopia for future quantum technologies and post-quantum security.",
+      text: "Preparing Ethiopia's critical infrastructure for emerging quantum technologies and post-quantum security standards.",
     },
+  ];
+
+  const goals = [
+    "Build sovereign national quantum expertise and technical workforce.",
+    "Support inter-university theoretical and applied quantum research.",
+    "Maintain a centralized Ethiopian Quantum Research Repository.",
+    "Strengthen international research and policy collaboration.",
   ];
 
   return (
     <section
       id="about"
-      className="bg-slate-950 text-white py-28"
+      className="bg-[var(--bg-primary)] text-[var(--text-primary)] py-32 lg:py-40 border-b border-[var(--border-subtle)]"
     >
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
+          <div className="lg:col-span-5">
+            <span className="text-[var(--insa-accent)] uppercase tracking-[3.5px] text-xs font-semibold">
+              About the Initiative
+            </span>
 
-        <div className="text-center max-w-4xl mx-auto">
+            <h2 className="font-serif-heading text-4xl sm:text-5xl font-bold mt-5 leading-tight">
+              Quantum Ethiopia Initiative
+            </h2>
 
-          <span className="text-cyan-400 uppercase tracking-[4px] text-sm">
-            About
-          </span>
+            <div className="w-16 h-1 bg-[var(--insa-accent)] mt-6"></div>
 
-          <h2 className="text-5xl font-bold mt-5">
-            Quantum Ethiopia Initiative
-          </h2>
+            <p className="mt-8 text-[var(--text-secondary)] text-lg leading-relaxed">
+              Quantum Ethiopia is a national initiative led by the Information
+              Network Security Administration (INSA) to advance quantum
+              computing, quantum communication, quantum cryptography, research,
+              education, innovation, and strategic collaboration.
+            </p>
 
-          <p className="mt-8 text-slate-300 text-lg leading-9">
-            Quantum Ethiopia is a national initiative led by the Information
-            Network Security Administration (INSA) to advance quantum computing,
-            quantum communication, quantum cryptography, research, education,
-            innovation and strategic collaboration. The initiative aims to build
-            a national ecosystem connecting universities, researchers,
-            government institutions, industry and international partners while
-            preparing Ethiopia for the next generation of computing.
-          </p>
+            <p className="mt-6 text-[var(--text-secondary)] text-base leading-relaxed">
+              The initiative establishes a cohesive national ecosystem connecting
+              universities, researchers, government institutions, industry, and
+              international partners while preparing Ethiopia for the next
+              generation of secure computing.
+            </p>
+          </div>
 
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
-
-          {cards.map((card) => (
-            <div
-              key={card.title}
-              className="bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-cyan-400 transition duration-300 hover:-translate-y-2"
-            >
-              <div className="text-cyan-400 text-4xl mb-6">
-                {card.icon}
+          <div className="lg:col-span-7 border-t border-[var(--border-color)]">
+            {pillars.map((pillar) => (
+              <div
+                key={pillar.title}
+                className="py-8 border-b border-[var(--border-color)] flex flex-col sm:flex-row sm:items-baseline gap-4 sm:gap-10"
+              >
+                <div className="sm:w-48 shrink-0 flex items-baseline gap-3">
+                  <span className="font-mono text-xs text-[var(--insa-accent)] font-semibold">
+                    {pillar.index}
+                  </span>
+                  <h3 className="font-serif-heading text-2xl font-bold text-[var(--text-primary)]">
+                    {pillar.title}
+                  </h3>
+                </div>
+                <p className="text-[var(--text-secondary)] leading-relaxed">
+                  {pillar.text}
+                </p>
               </div>
-
-              <h3 className="text-2xl font-bold mb-4">
-                {card.title}
-              </h3>
-
-              <p className="text-slate-400 leading-8">
-                {card.text}
-              </p>
-            </div>
-          ))}
-
+            ))}
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mt-20">
-
-          <div className="bg-cyan-500 rounded-3xl p-10 text-slate-950">
-            <h3 className="text-3xl font-bold">
+        <div className="mt-28 pt-16 border-t border-[var(--border-color)] grid lg:grid-cols-3 gap-12 lg:gap-16">
+          <div className="border-l-2 border-[var(--insa-accent)] pl-6">
+            <span className="text-xs uppercase tracking-[3px] text-[var(--insa-accent)] font-semibold">
+              01 / Mandate
+            </span>
+            <h3 className="font-serif-heading text-3xl font-bold mt-2">
               Mission
             </h3>
-
-            <p className="mt-6 leading-8">
-              Accelerate Ethiopia's quantum research ecosystem by supporting
-              education, innovation, strategic collaboration and national
-              capacity building.
+            <p className="mt-5 text-[var(--text-secondary)] leading-relaxed">
+              Accelerate Ethiopia&apos;s quantum research ecosystem by supporting
+              education, innovation, strategic collaboration, and national
+              capacity building under INSA&apos;s strategic framework.
             </p>
           </div>
 
-          <div className="bg-slate-900 rounded-3xl border border-slate-800 p-10">
-            <h3 className="text-3xl font-bold text-cyan-400">
+          <div className="border-l-2 border-[var(--insa-accent)] pl-6">
+            <span className="text-xs uppercase tracking-[3px] text-[var(--insa-accent)] font-semibold">
+              02 / Direction
+            </span>
+            <h3 className="font-serif-heading text-3xl font-bold mt-2">
               Vision
             </h3>
-
-            <p className="mt-6 text-slate-400 leading-8">
-              Position Ethiopia as one of Africa's leading contributors in
-              quantum science and emerging technologies.
+            <p className="mt-5 text-[var(--text-secondary)] leading-relaxed">
+              Position Ethiopia as one of Africa&apos;s leading contributors in
+              quantum science, resilient cryptography, and emerging computation.
             </p>
           </div>
 
-          <div className="bg-slate-900 rounded-3xl border border-slate-800 p-10">
-            <h3 className="text-3xl font-bold text-cyan-400">
-              Goals
+          <div className="border-l-2 border-[var(--insa-accent)] pl-6">
+            <span className="text-xs uppercase tracking-[3px] text-[var(--insa-accent)] font-semibold">
+              03 / Objectives
+            </span>
+            <h3 className="font-serif-heading text-3xl font-bold mt-2">
+              Strategic Goals
             </h3>
-
-            <ul className="mt-6 text-slate-400 leading-8 space-y-3">
-              <li>• Build national quantum expertise.</li>
-              <li>• Support university research.</li>
-              <li>• Create a national research repository.</li>
-              <li>• Strengthen international collaboration.</li>
+            <ul className="mt-5 text-[var(--text-secondary)] space-y-3 list-disc list-inside leading-relaxed">
+              {goals.map((goal) => (
+                <li key={goal}>{goal}</li>
+              ))}
             </ul>
           </div>
-
         </div>
-
       </div>
     </section>
   );

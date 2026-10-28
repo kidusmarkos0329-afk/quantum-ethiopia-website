@@ -9,15 +9,10 @@ function Home() {
   return (
     <>
       <Navbar />
-
       <Hero />
-
       <Stats />
-
       <About />
-
       <WhyQuantum />
-
       <Footer />
     </>
   );

@@ -1,113 +1,92 @@
-import {
-  FaRocket,
-  FaGraduationCap,
-  FaFlask,
-  FaIndustry,
-  FaGlobeAfrica,
-} from "react-icons/fa";
-
 function Roadmap() {
   const roadmap = [
     {
       year: "2026",
-      icon: <FaRocket />,
-      title: "National Initiative",
+      phase: "Phase I",
+      title: "National Initiative Launch",
       description:
-        "Launch the Quantum Ethiopia Initiative, establish strategic direction, begin national awareness programs and initiate collaboration with universities and international partners.",
+        "Launch the Quantum Ethiopia Initiative under INSA, establish strategic governance, initiate national awareness programs, and formalize university working groups.",
     },
     {
       year: "2027",
-      icon: <FaGraduationCap />,
+      phase: "Phase II",
       title: "Education & Capacity Building",
       description:
-        "Develop university curricula, train researchers, organize workshops, seminars and national quantum education programs.",
+        "Develop standardized university quantum curricula, train graduate researchers, and host national quantum workshops and winter schools.",
     },
     {
       year: "2028",
-      icon: <FaFlask />,
-      title: "Research Ecosystem",
+      phase: "Phase III",
+      title: "Research Ecosystem Expansion",
       description:
-        "Expand research collaborations, publish national research, establish shared laboratories and strengthen the Ethiopian Quantum Research Repository.",
+        "Expand inter-university research collaborations, establish shared simulation laboratories, and scale the Ethiopian Quantum Research Repository.",
     },
     {
       year: "2030",
-      icon: <FaIndustry />,
-      title: "Industrial Applications",
+      phase: "Phase IV",
+      title: "Industrial & Cryptographic Deployment",
       description:
-        "Promote industry collaboration in quantum computing, cybersecurity, finance, healthcare, logistics and agriculture.",
+        "Execute post-quantum cryptography transitions across critical national infrastructure and pilot quantum optimization in finance, logistics, and agriculture.",
     },
     {
       year: "2035",
-      icon: <FaGlobeAfrica />,
+      phase: "Phase V",
       title: "Regional Leadership",
       description:
-        "Position Ethiopia as one of Africa's leading quantum research and innovation hubs through sustained investment, collaboration and talent development.",
+        "Position Ethiopia as one of Africa's foremost quantum research and innovation hubs through sustained investment and talent development.",
     },
   ];
 
   return (
     <section
       id="roadmap"
-      className="bg-slate-950 text-white py-28"
+      className="bg-[var(--bg-primary)] text-[var(--text-primary)] py-32 lg:py-40 border-b border-[var(--border-subtle)]"
     >
-      <div className="max-w-7xl mx-auto px-8">
-
-        <div className="text-center max-w-4xl mx-auto">
-
-          <span className="uppercase tracking-[4px] text-cyan-400 text-sm">
-            Roadmap
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="max-w-3xl">
+          <span className="uppercase tracking-[3.5px] text-[var(--insa-accent)] text-xs font-semibold">
+            National Timeline
           </span>
 
-          <h2 className="text-5xl font-bold mt-5">
-            Ethiopia Quantum Roadmap
+          <h2 className="font-serif-heading text-4xl sm:text-5xl font-bold mt-5">
+            Ethiopia Quantum Roadmap (2026–2035)
           </h2>
 
-          <p className="mt-8 text-lg text-slate-300 leading-9">
-            A long-term roadmap for developing quantum research, education,
-            collaboration and national capability.
+          <p className="mt-6 text-lg text-[var(--text-secondary)] leading-relaxed">
+            A phased ten-year framework for cultivating national quantum
+            research, cryptographic resilience, and academic excellence.
           </p>
-
         </div>
 
-        <div className="relative mt-24">
-
-          <div className="absolute left-8 top-0 bottom-0 w-1 bg-cyan-500 hidden md:block"></div>
-
-          <div className="space-y-14">
-
-            {roadmap.map((item) => (
-              <div
-                key={item.year}
-                className="relative flex flex-col md:flex-row gap-8"
-              >
-
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-cyan-500 text-slate-950 text-2xl font-bold shrink-0">
-                  {item.icon}
-                </div>
-
-                <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 w-full hover:border-cyan-400 transition duration-300">
-
-                  <span className="text-cyan-400 text-lg font-semibold">
-                    {item.year}
-                  </span>
-
-                  <h3 className="text-3xl font-bold mt-3">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-slate-400 mt-6 leading-8">
-                    {item.description}
-                  </p>
-
-                </div>
-
+        <div className="mt-24 border-t border-[var(--border-color)]">
+          {roadmap.map((item) => (
+            <div
+              key={item.year}
+              className="py-12 border-b border-[var(--border-color)] grid md:grid-cols-12 gap-8 items-baseline"
+            >
+              <div className="md:col-span-3 flex items-baseline gap-4">
+                <span className="font-serif-heading text-4xl font-bold text-[var(--insa-accent)]">
+                  {item.year}
+                </span>
+                <span className="text-xs uppercase tracking-[2px] text-[var(--text-muted)] font-semibold">
+                  {item.phase}
+                </span>
               </div>
-            ))}
 
-          </div>
+              <div className="md:col-span-4">
+                <h3 className="font-serif-heading text-2xl font-bold text-[var(--text-primary)]">
+                  {item.title}
+                </h3>
+              </div>
 
+              <div className="md:col-span-5">
+                <p className="text-[var(--text-secondary)] leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-
       </div>
     </section>
   );

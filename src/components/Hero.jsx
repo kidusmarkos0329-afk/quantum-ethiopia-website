@@ -1,4 +1,3 @@
-import { FaArrowRight } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -6,136 +5,103 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-950 text-white"
+      className="relative min-h-screen flex items-center overflow-hidden bg-[var(--bg-primary)] text-[var(--text-primary)] pt-28 pb-32 lg:py-40 border-b border-[var(--border-subtle)]"
     >
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 grid lg:grid-cols-12 gap-16 lg:gap-20 items-center relative z-10">
+        <div className="lg:col-span-7">
+          <div className="inline-flex items-center gap-2.5 bg-[var(--insa-badge-bg)] border border-[var(--insa-accent)]/30 text-[var(--insa-badge-text)] px-4 py-1.5 rounded-full text-xs uppercase tracking-[2.5px] font-semibold">
+            <span>INSA • Ethiopia&apos;s National Quantum Initiative</span>
+          </div>
 
-      <div className="absolute w-[700px] h-[700px] rounded-full bg-cyan-500/10 blur-3xl -top-40 -right-40"></div>
-
-      <div className="absolute w-[500px] h-[500px] rounded-full bg-blue-500/10 blur-3xl -bottom-40 -left-40"></div>
-
-      <div className="max-w-7xl mx-auto px-8 py-32 grid lg:grid-cols-2 gap-20 items-center relative z-10">
-
-        <div>
-
-          <span className="inline-block bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 px-5 py-2 rounded-full text-sm tracking-wider">
-            Ethiopia's National Quantum Initiative
-          </span>
-
-          <h1 className="text-6xl lg:text-7xl font-extrabold leading-tight mt-8">
-
-            Building Ethiopia's
-
-            <span className="block text-cyan-400">
+          <h1 className="font-serif-heading text-5xl sm:text-6xl lg:text-[64px] font-bold leading-[1.15] mt-8 text-[var(--text-primary)]">
+            Building Ethiopia&apos;s{" "}
+            <span className="block text-[var(--insa-accent)] mt-2">
               Quantum Future
             </span>
-
           </h1>
 
-          <p className="mt-8 text-slate-300 text-xl leading-9 max-w-2xl">
-            A national platform connecting researchers,
-            universities, government institutions,
-            industry, innovators, and students to
-            accelerate quantum computing research,
-            education, and innovation across Ethiopia.
+          <p className="mt-8 text-[var(--text-secondary)] text-lg sm:text-xl leading-relaxed max-w-2xl">
+            Led by the Information Network Security Administration (INSA), this
+            national platform connects universities, researchers, government
+            institutions, and industry innovators to advance quantum computing,
+            post-quantum cryptography, and scientific discovery across Ethiopia.
           </p>
 
           <div className="flex flex-wrap gap-5 mt-12">
-
             <Link
               to="/repository"
-              className="bg-cyan-500 hover:bg-cyan-400 transition px-8 py-4 rounded-xl font-semibold flex items-center gap-3 text-slate-950"
+              className="bg-[var(--btn-primary-bg)] hover:opacity-95 transition px-8 py-4 rounded-lg font-semibold text-white shadow-sm"
             >
-              Explore Repository
-              <FaArrowRight />
+              Explore Research Repository
             </Link>
 
             <Link
-              to="/about"
-              className="border border-cyan-500 hover:bg-cyan-500/10 transition px-8 py-4 rounded-xl font-semibold"
+              to="/submit-research"
+              className="border border-[var(--border-color)] bg-[var(--bg-secondary)] hover:border-[var(--insa-accent)] transition px-8 py-4 rounded-lg font-semibold text-[var(--text-primary)]"
             >
-              Learn More
+              Submit Research Paper
             </Link>
-
           </div>
-
         </div>
 
-
-        <div className="flex justify-center">
-
-          <div className="relative w-[500px] h-[500px] flex items-center justify-center">
-
+        <div className="lg:col-span-5 flex justify-center">
+          <div className="relative w-[340px] h-[340px] sm:w-[420px] sm:h-[420px] flex items-center justify-center">
             <motion.div
               animate={{ rotate: 360 }}
               transition={{
                 repeat: Infinity,
-                duration: 18,
+                duration: 24,
                 ease: "linear",
               }}
-              className="absolute w-[420px] h-[420px] rounded-full border border-cyan-400/40"
+              className="absolute w-full h-full rounded-full border border-[var(--insa-accent)]/30"
             />
 
             <motion.div
               animate={{ rotate: -360 }}
               transition={{
                 repeat: Infinity,
-                duration: 12,
+                duration: 16,
                 ease: "linear",
               }}
-              className="absolute w-[320px] h-[320px] rounded-full border-2 border-cyan-300"
+              className="absolute w-[260px] h-[260px] sm:w-[310px] sm:h-[310px] rounded-full border border-[var(--insa-accent)]/60"
             />
 
             <motion.div
               animate={{
-                scale: [1, 1.12, 1],
+                scale: [1, 1.08, 1],
               }}
               transition={{
                 repeat: Infinity,
-                duration: 2,
+                duration: 3,
               }}
-              className="w-28 h-28 rounded-full bg-cyan-400 shadow-[0_0_80px_#22d3ee]"
+              className="w-20 h-20 rounded-full bg-[var(--insa-accent)] shadow-lg"
             />
 
             <motion.div
               animate={{ rotate: 360 }}
-              transition={{
-                repeat: Infinity,
-                duration: 8,
-                ease: "linear",
-              }}
-              className="absolute w-[420px] h-[420px]"
-            >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-cyan-300 shadow-lg"></div>
-            </motion.div>
-
-            <motion.div
-              animate={{ rotate: -360 }}
               transition={{
                 repeat: Infinity,
                 duration: 10,
                 ease: "linear",
               }}
-              className="absolute w-[320px] h-[320px]"
+              className="absolute w-full h-full"
             >
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white"></div>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-[var(--insa-gold)]"></div>
             </motion.div>
 
             <motion.div
-              animate={{ rotate: 360 }}
+              animate={{ rotate: -360 }}
               transition={{
                 repeat: Infinity,
                 duration: 14,
                 ease: "linear",
               }}
-              className="absolute w-[500px] h-[500px]"
+              className="absolute w-[260px] h-[260px] sm:w-[310px] sm:h-[310px]"
             >
-              <div className="absolute top-1/2 right-0 -translate-y-1/2 w-5 h-5 rounded-full bg-cyan-500"></div>
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[var(--insa-accent)]"></div>
             </motion.div>
-
           </div>
-
         </div>
-
       </div>
     </section>
   );

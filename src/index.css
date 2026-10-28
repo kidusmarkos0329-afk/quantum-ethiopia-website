@@ -1,4 +1,52 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+:root,
+html.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-subtle: #eff6ff;
+  --bg-elevated: #f1f5f9;
+  --nav-bg: rgba(255, 255, 255, 0.94);
+  --text-primary: #0a192f;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border-color: #cbd5e1;
+  --border-subtle: #e2e8f0;
+  --insa-navy: #0b3c78;
+  --insa-accent: #0284c7;
+  --insa-accent-hover: #0369a1;
+  --insa-gold: #b45309;
+  --insa-badge-bg: rgba(2, 132, 199, 0.1);
+  --insa-badge-text: #0369a1;
+  --btn-primary-bg: #0b3c78;
+  --btn-primary-text: #ffffff;
+}
+
+html.dark {
+  --bg-primary: #060e1a;
+  --bg-secondary: #0b192c;
+  --bg-subtle: #112240;
+  --bg-elevated: #162a4a;
+  --nav-bg: rgba(6, 14, 26, 0.92);
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-color: #1e293b;
+  --border-subtle: #17253b;
+  --insa-navy: #0f294a;
+  --insa-accent: #38bdf8;
+  --insa-accent-hover: #0284c7;
+  --insa-gold: #f59e0b;
+  --insa-badge-bg: rgba(56, 189, 248, 0.12);
+  --insa-badge-text: #38bdf8;
+  --btn-primary-bg: #0284c7;
+  --btn-primary-text: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -6,13 +54,20 @@ html {
 
 body {
   margin: 0;
-  background: #020617;
-  font-family: Inter, Arial, Helvetica, sans-serif;
-  color: white;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.75;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-* {
-  box-sizing: border-box;
+h1,
+h2,
+h3,
+h4,
+.font-serif-heading {
+  font-family: Georgia, "Merriweather", "Times New Roman", serif;
+  letter-spacing: -0.015em;
 }
 
 ::-webkit-scrollbar {
@@ -20,15 +75,15 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #22d3ee;
+  background: var(--insa-accent);
   border-radius: 20px;
 }
 
 ::selection {
-  background: #22d3ee;
-  color: #020617;
+  background: var(--insa-accent);
+  color: #ffffff;
 }

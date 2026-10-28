@@ -1,173 +1,121 @@
-import {
-  FaFlagUsa,
-  FaUniversity,
-  FaMicrochip,
-  FaGlobeAfrica,
-} from "react-icons/fa";
-
 function GlobalLandscape() {
   const countries = [
     {
       country: "United States",
       investment: "$15B+",
       leader: "IBM • Google • Microsoft • Amazon",
-      strength: "Superconducting Quantum Computing",
+      strength: "Superconducting & Trapped-Ion Quantum Computing",
     },
     {
       country: "China",
       investment: "$15B+",
       leader: "USTC • Baidu • Origin Quantum",
-      strength: "Quantum Communication & Hardware",
-    },
-    {
-      country: "Canada",
-      investment: "$1B+",
-      leader: "D-Wave • Xanadu",
-      strength: "Quantum Software & Photonics",
-    },
-    {
-      country: "Germany",
-      investment: "$3B+",
-      leader: "Fraunhofer • IQM",
-      strength: "European Quantum Programs",
+      strength: "Satellite Quantum Communication & Photonic Hardware",
     },
     {
       country: "United Kingdom",
       investment: "$4B+",
       leader: "Oxford • Cambridge • Riverlane",
-      strength: "Quantum Research & Startups",
+      strength: "Quantum Software, Error Correction & Startups",
+    },
+    {
+      country: "Germany",
+      investment: "$3B+",
+      leader: "Fraunhofer • IQM • Max Planck Society",
+      strength: "Industrial Quantum Integration & Cryogenics",
     },
     {
       country: "Japan",
       investment: "$2B+",
-      leader: "Fujitsu • NEC • Toshiba",
-      strength: "Quantum Hardware & Communication",
+      leader: "Fujitsu • NEC • Toshiba • RIKEN",
+      strength: "Quantum Annealing, Hardware & Secure Networks",
+    },
+    {
+      country: "Canada",
+      investment: "$1B+",
+      leader: "D-Wave • Xanadu • Institute for Quantum Computing",
+      strength: "Photonic Quantum Computing & Algorithms",
     },
   ];
 
   return (
     <section
       id="landscape"
-      className="bg-slate-900 text-white py-28"
+      className="bg-[var(--bg-primary)] text-[var(--text-primary)] py-32 lg:py-40 border-b border-[var(--border-subtle)]"
     >
-      <div className="max-w-7xl mx-auto px-8">
-
-        <div className="text-center max-w-4xl mx-auto">
-
-          <span className="uppercase tracking-[4px] text-cyan-400 text-sm">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="max-w-3xl">
+          <span className="uppercase tracking-[3.5px] text-[var(--insa-accent)] text-xs font-semibold">
             Global Landscape
           </span>
 
-          <h2 className="text-5xl font-bold mt-5">
+          <h2 className="font-serif-heading text-4xl sm:text-5xl font-bold mt-5">
             Global Quantum Ecosystem
           </h2>
 
-          <p className="mt-8 text-lg text-slate-300 leading-9">
-            Countries around the world are investing heavily in quantum
-            computing, communications, sensing and post-quantum security.
+          <p className="mt-6 text-lg text-[var(--text-secondary)] leading-relaxed">
+            Leading economies are committing billions in public funding to
+            secure sovereign capabilities in quantum computation, sensing, and
+            post-quantum cryptography.
           </p>
-
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mt-20">
-
-          {countries.map((country) => (
-            <div
-              key={country.country}
-              className="bg-slate-950 border border-slate-800 rounded-3xl p-8 hover:border-cyan-400 transition duration-300 hover:-translate-y-2"
-            >
-
-              <div className="flex items-center gap-4 mb-8">
-
-                <FaFlagUsa className="text-cyan-400 text-4xl" />
-
-                <div>
-
-                  <h3 className="text-3xl font-bold">
-                    {country.country}
-                  </h3>
-
-                  <p className="text-cyan-400 mt-1">
-                    Investment: {country.investment}
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className="space-y-6">
-
-                <div className="flex gap-4">
-
-                  <FaUniversity className="text-cyan-400 mt-1" />
-
-                  <div>
-
-                    <h4 className="font-semibold text-lg">
-                      Major Organizations
-                    </h4>
-
-                    <p className="text-slate-400">
-                      {country.leader}
-                    </p>
-
-                  </div>
-
-                </div>
-
-                <div className="flex gap-4">
-
-                  <FaMicrochip className="text-cyan-400 mt-1" />
-
-                  <div>
-
-                    <h4 className="font-semibold text-lg">
-                      Primary Focus
-                    </h4>
-
-                    <p className="text-slate-400">
-                      {country.strength}
-                    </p>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-          ))}
-
+        {/* Clean Comparative Table replacing repetitive Country Cards */}
+        <div className="mt-20 overflow-x-auto bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl shadow-sm">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="border-b-2 border-[var(--border-color)] bg-[var(--bg-subtle)] text-xs uppercase tracking-wider text-[var(--text-primary)]">
+                <th className="py-5 px-6 font-semibold">Country</th>
+                <th className="py-5 px-6 font-semibold">
+                  Estimated Public Commitment
+                </th>
+                <th className="py-5 px-6 font-semibold">
+                  Key Research &amp; Industry Anchors
+                </th>
+                <th className="py-5 px-6 font-semibold">
+                  Primary Strategic Focus
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[var(--border-color)] text-sm sm:text-base">
+              {countries.map((item) => (
+                <tr
+                  key={item.country}
+                  className="hover:bg-[var(--bg-primary)]/60 transition"
+                >
+                  <td className="py-6 px-6 font-serif-heading font-bold text-lg text-[var(--text-primary)] whitespace-nowrap">
+                    {item.country}
+                  </td>
+                  <td className="py-6 px-6 font-mono font-semibold text-[var(--insa-accent)] whitespace-nowrap">
+                    {item.investment}
+                  </td>
+                  <td className="py-6 px-6 text-[var(--text-secondary)]">
+                    {item.leader}
+                  </td>
+                  <td className="py-6 px-6 text-[var(--text-secondary)]">
+                    {item.strength}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
 
-        <div className="mt-24 bg-cyan-500 rounded-3xl p-12 text-slate-950">
-
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
-
-            <div className="max-w-3xl">
-
-              <div className="flex items-center gap-4">
-
-                <FaGlobeAfrica className="text-5xl" />
-
-                <h3 className="text-4xl font-bold">
-                  Ethiopia's Opportunity
-                </h3>
-
-              </div>
-
-              <p className="mt-8 text-lg leading-9">
-                By investing in research, education, national collaboration and
-                international partnerships today, Ethiopia can build a strong
-                foundation for future quantum technologies across Africa.
-              </p>
-
-            </div>
-
-          </div>
-
+        {/* Strategic Callout for Ethiopia */}
+        <div className="mt-24 border-l-4 border-[var(--insa-accent)] bg-[var(--bg-secondary)] p-10 sm:p-14">
+          <span className="text-xs uppercase tracking-[3px] text-[var(--insa-accent)] font-semibold">
+            Continental Positioning
+          </span>
+          <h3 className="font-serif-heading text-3xl sm:text-4xl font-bold mt-2">
+            Ethiopia&apos;s Strategic Opportunity
+          </h3>
+          <p className="mt-5 text-lg text-[var(--text-secondary)] leading-relaxed max-w-4xl">
+            By coordinating academic research, cryptographic readiness, and
+            international partnerships today under INSA, Ethiopia can establish
+            a premier East African hub for quantum talent, post-quantum
+            security, and scientific innovation.
+          </p>
         </div>
-
       </div>
     </section>
   );

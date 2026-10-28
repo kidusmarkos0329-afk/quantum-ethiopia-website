@@ -1,66 +1,54 @@
-import { FaGlobe, FaUniversity, FaDollarSign, FaRocket } from "react-icons/fa";
-
 function Stats() {
   const stats = [
     {
-      icon: <FaGlobe />,
       number: "190+",
       title: "Countries",
-      subtitle: "Researching Quantum",
+      subtitle: "Engaged in National Quantum Research",
     },
     {
-      icon: <FaUniversity />,
-      number: "1000+",
-      title: "Research",
-      subtitle: "Institutions Worldwide",
+      number: "1,000+",
+      title: "Institutions",
+      subtitle: "Academic & National Laboratories Worldwide",
     },
     {
-      icon: <FaDollarSign />,
       number: "$40B+",
-      title: "Global",
-      subtitle: "Investment",
+      title: "Global Commitment",
+      subtitle: "Public & Strategic Quantum Investment",
     },
     {
-      icon: <FaRocket />,
       number: "2035",
-      title: "Expected",
-      subtitle: "Industry Boom",
+      title: "Strategic Horizon",
+      subtitle: "Projected Fault-Tolerant Industry Maturity",
     },
   ];
 
   return (
-    <section className="bg-slate-900 py-24">
-      <div className="max-w-7xl mx-auto px-8">
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-          {stats.map((stat) => (
+    <section className="bg-[var(--bg-secondary)] border-b border-[var(--border-subtle)] py-24 lg:py-28">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[var(--border-color)]">
+          {stats.map((stat, idx) => (
             <div
               key={stat.number}
-              className="bg-slate-950 border border-slate-800 rounded-3xl p-10 text-center hover:border-cyan-400 hover:-translate-y-2 transition duration-300"
+              className={`py-8 sm:py-4 ${
+                idx === 0
+                  ? "sm:pr-8"
+                  : idx === stats.length - 1
+                  ? "sm:pl-8"
+                  : "sm:px-8"
+              }`}
             >
-
-              <div className="text-cyan-400 text-5xl flex justify-center mb-6">
-                {stat.icon}
-              </div>
-
-              <h2 className="text-5xl font-extrabold text-white">
+              <p className="text-xs uppercase tracking-[3px] text-[var(--insa-accent)] font-semibold">
+                {stat.title}
+              </p>
+              <h2 className="font-serif-heading text-5xl font-bold text-[var(--text-primary)] mt-3">
                 {stat.number}
               </h2>
-
-              <h3 className="text-xl font-semibold text-cyan-400 mt-5">
-                {stat.title}
-              </h3>
-
-              <p className="text-slate-400 mt-2">
+              <p className="text-[var(--text-secondary)] text-sm mt-3 leading-relaxed">
                 {stat.subtitle}
               </p>
-
             </div>
           ))}
-
         </div>
-
       </div>
     </section>
   );

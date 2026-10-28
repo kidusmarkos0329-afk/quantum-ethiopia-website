@@ -1,150 +1,148 @@
-import {
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaPaperPlane,
-} from "react-icons/fa";
+import { useState } from "react";
 
 function Contact() {
+  const [sent, setSent] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSent(true);
+  };
+
   return (
     <section
       id="contact"
-      className="bg-slate-900 text-white py-28"
+      className="bg-[var(--bg-primary)] text-[var(--text-primary)] py-32 lg:py-40"
     >
-      <div className="max-w-7xl mx-auto px-8">
-
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-          <div>
-
-            <span className="uppercase tracking-[4px] text-cyan-400 text-sm">
-              Contact
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
+        <div className="grid lg:grid-cols-12 gap-16 items-start">
+          <div className="lg:col-span-5">
+            <span className="uppercase tracking-[3.5px] text-[var(--insa-accent)] text-xs font-semibold">
+              Contact INSA
             </span>
 
-            <h2 className="text-5xl font-bold mt-5">
+            <h2 className="font-serif-heading text-4xl sm:text-5xl font-bold mt-5 leading-tight">
               Connect With Quantum Ethiopia
             </h2>
 
-            <p className="mt-8 text-lg text-slate-300 leading-9">
-              Researchers, universities, institutions and organizations can
-              connect with us to contribute research, collaborate and support
-              Ethiopia's quantum technology ecosystem.
+            <p className="mt-6 text-lg text-[var(--text-secondary)] leading-relaxed">
+              Researchers, universities, government institutions, and
+              international organizations can contact the Information Network
+              Security Administration (INSA) to collaborate on Ethiopia&apos;s
+              quantum technology ecosystem.
             </p>
 
-            <div className="mt-10 space-y-6">
-
-              <div className="flex items-center gap-5">
-
-                <div className="bg-cyan-500/20 p-4 rounded-xl">
-                  <FaEnvelope className="text-cyan-400 text-xl" />
-                </div>
-
-                <div>
-                  <h3 className="font-semibold">
-                    Email
-                  </h3>
-
-                  <p className="text-slate-400">
-                    quantum@insa.gov.et
-                  </p>
-                </div>
-
+            <dl className="mt-12 space-y-6 border-t border-[var(--border-color)] pt-8">
+              <div>
+                <dt className="text-xs uppercase tracking-[2px] text-[var(--insa-accent)] font-semibold">
+                  Official Email
+                </dt>
+                <dd className="text-lg font-medium text-[var(--text-primary)] mt-1">
+                  quantum@insa.gov.et • contact@insa.gov.et
+                </dd>
               </div>
 
-
-              <div className="flex items-center gap-5">
-
-                <div className="bg-cyan-500/20 p-4 rounded-xl">
-                  <FaPhone className="text-cyan-400 text-xl" />
-                </div>
-
-                <div>
-                  <h3 className="font-semibold">
-                    Phone
-                  </h3>
-
-                  <p className="text-slate-400">
-                    +251 XXX XXX XXX
-                  </p>
-                </div>
-
+              <div>
+                <dt className="text-xs uppercase tracking-[2px] text-[var(--insa-accent)] font-semibold">
+                  Telephone
+                </dt>
+                <dd className="text-lg font-medium text-[var(--text-primary)] mt-1">
+                  +251-113-71-71-14
+                </dd>
               </div>
 
-
-              <div className="flex items-center gap-5">
-
-                <div className="bg-cyan-500/20 p-4 rounded-xl">
-                  <FaMapMarkerAlt className="text-cyan-400 text-xl" />
-                </div>
-
-                <div>
-                  <h3 className="font-semibold">
-                    Location
-                  </h3>
-
-                  <p className="text-slate-400">
-                    Addis Ababa, Ethiopia
-                  </p>
-                </div>
-
+              <div>
+                <dt className="text-xs uppercase tracking-[2px] text-[var(--insa-accent)] font-semibold">
+                  Headquarters Address
+                </dt>
+                <dd className="text-lg font-medium text-[var(--text-primary)] mt-1">
+                  Welo Sefer, China Street, Addis Ababa, Ethiopia
+                </dd>
               </div>
-
-            </div>
-
+            </dl>
           </div>
 
-
-          <div className="bg-slate-950 border border-slate-800 rounded-3xl p-10">
-
-            <h3 className="text-3xl font-bold">
-              Send a Message
+          <div className="lg:col-span-7 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl p-8 sm:p-12 shadow-sm">
+            <h3 className="font-serif-heading text-2xl sm:text-3xl font-bold">
+              Send an Institutional Inquiry
             </h3>
 
+            {sent ? (
+              <div className="mt-8 p-6 rounded-lg bg-[var(--insa-badge-bg)] border border-[var(--insa-accent)]/40">
+                <h4 className="font-serif-heading text-xl font-bold text-[var(--text-primary)]">
+                  Message Received
+                </h4>
+                <p className="mt-2 text-[var(--text-secondary)]">
+                  Thank you for contacting the Quantum Ethiopia Initiative at
+                  INSA. Our coordination desk will respond shortly.
+                </p>
+                <button
+                  onClick={() => setSent(false)}
+                  className="mt-6 text-sm font-semibold text-[var(--insa-accent)] hover:underline"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+                <div>
+                  <label className="block text-sm font-semibold mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Your Name"
+                    className="w-full bg-[var(--bg-primary)] border border-[var(--border-color)] rounded-lg px-4 py-3.5 outline-none focus:border-[var(--insa-accent)] text-[var(--text-primary)]"
+                  />
+                </div>
 
-            <div className="mt-8 space-y-5">
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="name@institution.edu.et"
+                      className="w-full bg-[var(--bg-primary)] border border-[var(--border-color)] rounded-lg px-4 py-3.5 outline-none focus:border-[var(--insa-accent)] text-[var(--text-primary)]"
+                    />
+                  </div>
 
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-cyan-400"
-              />
+                  <div>
+                    <label className="block text-sm font-semibold mb-2">
+                      Organization / University
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Addis Ababa University"
+                      className="w-full bg-[var(--bg-primary)] border border-[var(--border-color)] rounded-lg px-4 py-3.5 outline-none focus:border-[var(--insa-accent)] text-[var(--text-primary)]"
+                    />
+                  </div>
+                </div>
 
+                <div>
+                  <label className="block text-sm font-semibold mb-2">
+                    Message *
+                  </label>
+                  <textarea
+                    rows="5"
+                    required
+                    placeholder="Describe your research collaboration or inquiry..."
+                    className="w-full bg-[var(--bg-primary)] border border-[var(--border-color)] rounded-lg px-4 py-3.5 outline-none focus:border-[var(--insa-accent)] text-[var(--text-primary)]"
+                  ></textarea>
+                </div>
 
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-cyan-400"
-              />
-
-
-              <input
-                type="text"
-                placeholder="Organization / University"
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-cyan-400"
-              />
-
-
-              <textarea
-                rows="5"
-                placeholder="Your Message"
-                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-5 py-4 outline-none focus:border-cyan-400"
-              ></textarea>
-
-
-              <button className="w-full bg-cyan-500 text-slate-950 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 hover:bg-cyan-400 transition">
-
-                Send Message
-
-                <FaPaperPlane />
-
-              </button>
-
-            </div>
-
+                <button
+                  type="submit"
+                  className="w-full bg-[var(--btn-primary-bg)] text-white py-4 rounded-lg font-semibold hover:opacity-95 transition shadow-sm"
+                >
+                  Send Message
+                </button>
+              </form>
+            )}
           </div>
-
         </div>
-
       </div>
     </section>
   );
